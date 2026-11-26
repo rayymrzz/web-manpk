@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  title="Profil | MANPK Jombang"
+  description="Profil MANPK Jombang: sejarah, visi misi, program unggulan, dan asrama."
+>
+
+  <!-- PAGE HERO -->
+  <PageHero eyebrow="PROFIL MADRASAH" title="Mengenal" accent="MANPK Jombang.">
+    Madrasah Aliyah Negeri Program Keagamaan MAN 4 Jombang,
+    tumbuh di lingkungan Pondok Pesantren Mamba'ul Ma'arif Denanyar.
+  </PageHero>
+
+
+  <!-- SEJARAH -->
+  <section class="content-section split-section reveal">
+    <div class="split-text">
+      <p class="section-label">01 — SEJARAH SINGKAT</p>
+      <h2>Madrasah keagamaan di bawah naungan pesantren.</h2>
+      <p>
+        MAN 4 Jombang ditunjuk sebagai penyelenggara Madrasah Aliyah
+        Program Keagamaan (MANPK) sejak tahun 2017, dan kini menjadi
+        salah satu dari 11 madrasah penyelenggara MAN PK di Indonesia. MANPK Jombang
+        berada di lingkungan Pondok Pesantren Mamba'ul Ma'arif Denanyar,
+        sehingga suasana pesantren terasa kental dalam keseharian santri.
+      </p>
+      <p>
+        Pembelajaran memadukan kurikulum madrasah dengan tradisi
+        pengkajian kitab kuning, menggabungkan metode pondok salaf
+        dan pondok modern.
+      </p>
+      <p>
+        Lulusan MAN PK berpeluang mendapat beasiswa UKT 8 semester di
+        UIN Sunan Ampel Surabaya dan UIN Walisongo Semarang. Alumni
+        melanjutkan studi ke Mesir, Yaman, Maroko, UGM, Unair, dan kampus lainnya.
+      </p>
+    </div>
+
+    <div class="split-visual">
+      <!-- Ganti <span> dengan <img src={url('img/gedung.jpg')} alt="..."> -->
+      <div class="photo-frame" data-parallax>
+        <span>FOTO GEDUNG MADRASAH</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VISI MISI -->
+  <section class="content-section vision-section reveal">
+    <div class="section-heading centered">
+      <span>02 — VISI &amp; MISI</span>
+      <h2>Arah dan tujuan kami</h2>
+    </div>
+
+    <div class="vision-grid">
+      <article class="vision-card vision-main">
+        <h3>Visi</h3>
+        <p>
+          <!-- GANTI dengan visi resmi madrasah -->
+          [Isi visi resmi MANPK Jombang di sini]
+        </p>
+      </article>
+
+      <article class="vision-card">
+        <h3>Misi</h3>
+        <ol>
+          <!-- GANTI dengan misi resmi madrasah -->
+          <li>[Misi 1]</li>
+          <li>[Misi 2]</li>
+          <li>[Misi 3]</li>
+          <li>[Misi 4]</li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- PROGRAM PEMBINAAN -->
+  <section class="content-section program-section reveal">
+    <div class="section-heading">
+      <span>03 — PROGRAM PEMBINAAN</span>
+      <h2>Ilmu agama yang dalam, wawasan yang luas</h2>
+    </div>
+
+    <ol class="program-list" data-stagger>
+      <li>
+        <h3>Tahsin &amp; Tahfidz</h3>
+        <p>Al-Qur'an dan Al-Hadits, dengan target minimal 6 juz dan hafalan Hadits Arba'in Nawawi.</p>
+      </li>
+      <li>
+        <h3>Kutub Turats</h3>
+        <p>Bimbingan membaca kitab turats, ditopang program wajib matrikulasi bahasa.</p>
+      </li>
+      <li>
+        <h3>Khatib, Da'i &amp; Da'iyah</h3>
+        <p>Muhadlarah, talkshow, dan bahtsul masail sebagai latihan berdakwah dan bernalar.</p>
+      </li>
+      <li>
+        <h3>Olimpiade &amp; Karya Tulis</h3>
+        <p>Pembinaan olimpiade keagamaan, sains, kebahasaan, dan karya tulis ilmiah. Lebih dari 70 buku karya murid telah diterbitkan.</p>
+      </li>
+      <li>
+        <h3>Language Fair &amp; Camp</h3>
+        <p>Penguatan Bahasa Arab dan Inggris, termasuk camp TOAFL/TOEFL.</p>
+      </li>
+    </ol>
+  </section>
+
+
+  <!-- ASRAMA -->
+  <section class="content-section split-section reverse reveal">
+    <div class="split-text">
+      <p class="section-label">04 — ASRAMA</p>
+      <h2>Asrama Hasbullah Sa'id.</h2>
+      <p>
+        Seluruh santri MANPK tinggal di Asrama Hasbullah Sa'id. Asrama
+        menjadi ruang pembinaan ibadah, kedisiplinan, kemandirian,
+        dan kebersamaan di luar jam madrasah.
+      </p>
+      <a href={url('galeri/')} class="about-button">Lihat Galeri →</a>
+    </div>
+
+    <div class="split-visual">
+      <div class="photo-frame" data-parallax>
+        <span>FOTO ASRAMA</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SAMBUTAN -->
+  <section class="content-section reveal">
+    <div class="quote-block">
+      <p class="section-label">05 — SAMBUTAN</p>
+      <blockquote>
+        <!-- GANTI dengan kutipan sambutan kepala madrasah -->
+        "[Kutipan singkat sambutan Kepala Madrasah / Kepala Program Keagamaan]"
+      </blockquote>
+      <p class="quote-author">[Nama Kepala Madrasah] — Kepala MAN 4 Jombang</p>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AchievementCard from '../components/AchievementCard.astro';
+
+// Data: src/content/prestasi-unggulan.json & src/content/prestasi.json (lihat README.md)
+const unggulan = (await getCollection('prestasiUnggulan')).sort((a, b) => a.data.urutan - b.data.urutan);
+const daftar = (await getCollection('prestasi')).sort((a, b) => a.data.urutan - b.data.urutan);
+const nomor = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<BaseLayout title="Prestasi | MANPK Jombang" mainClass="achievement-page">
+
+  <!-- FEATURED ACHIEVEMENTS -->
+  <section class="featured-section">
+    <div class="section-heading featured-heading" data-hero>
+      <span data-hero-fade="start">CAPAIAN & APRESIASI</span>
+      <h1 data-split>Prestasi MANPK</h1>
+      <p data-split>
+        Rekam jejak pencapaian dan karya santri
+        MANPK Jombang di berbagai bidang.
+      </p>
+    </div>
+
+    <div class="featured-grid" data-stagger>
+      {unggulan.map((entry, i) => <AchievementCard entry={entry} featured={i === 0} />)}
+    </div>
+  </section>
+
+  <!-- DAFTAR PRESTASI -->
+  <section class="achievement-list-section">
+    <div class="section-heading">
+      <span>ARSIP PRESTASI</span>
+      <h2>Daftar Prestasi</h2>
+      <p>
+        Dokumentasi pencapaian siswa MANPK Jombang.
+      </p>
+    </div>
+
+    <div class="achievement-table-wrapper">
+      <table class="achievement-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nama Siswa / Tim</th>
+            <th>Prestasi</th>
+            <th>Kompetisi</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {daftar.map(({ data }, i) => (
+            <tr>
+              <td data-label="No.">{nomor(i)}</td>
+              <td data-label="Nama">{data.nama}</td>
+              <td data-label="Prestasi"><span class="table-award">{data.prestasi}</span></td>
+              <td data-label="Kompetisi">{data.kompetisi}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</BaseLayout>

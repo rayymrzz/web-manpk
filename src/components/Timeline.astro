@@ -1,0 +1,20 @@
+---
+/**
+ * Daftar tahapan seleksi. `end` (YYYY-MM-DD) dipakai script untuk
+ * menandai tahap yang sudah lewat (kelas .done) berdasarkan tanggal hari ini.
+ */
+interface Props {
+  title: string;
+  items: { label: string; time: string; end: string }[];
+}
+const { title, items } = Astro.props;
+---
+
+<div class="schedule-col">
+  <h3>{title}</h3>
+  <ol class="timeline">
+    {items.map((it) => (
+      <li data-end={it.end}><span>{it.label}</span><time>{it.time}</time></li>
+    ))}
+  </ol>
+</div>

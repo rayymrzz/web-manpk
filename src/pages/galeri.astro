@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+
+// Data: src/content/galeri.json (lihat README.md). Foto yang memakai `foto` otomatis bisa diklik (lightbox).
+const foto = (await getCollection('galeri')).sort((a, b) => a.data.urutan - b.data.urutan);
+
+const filters = [
+  { key: 'all', label: 'Semua' },
+  { key: 'madrasah', label: 'Madrasah' },
+  { key: 'asrama', label: 'Asrama' },
+  { key: 'lomba', label: 'Lomba' },
+];
+---
+
+<BaseLayout title="Galeri | MANPK Jombang" description="Galeri foto kegiatan MANPK Jombang.">
+
+  <PageHero eyebrow="DOKUMENTASI" title="Galeri" accent="MANPK.">
+    Potret keseharian, kegiatan, dan momen berharga santri MANPK Jombang.
+  </PageHero>
+
+
+  <section class="content-section">
+
+    <div class="filter-bar" role="group" aria-label="Filter kategori galeri">
+      {filters.map(({ key, label }, i) => (
+        <button class:list={['filter-btn', { active: i === 0 }]} data-filter={key} aria-pressed={i === 0 ? 'true' : 'false'}>{label}</button>
+      ))}
+    </div>
+
+    <div class="gallery-grid">
+      {foto.map(({ data }) => (
+        <figure class:list={['gallery-item', { tall: data.ukuran === 'tall', wide: data.ukuran === 'wide' }]} data-category={data.kategori}>
+          {data.foto
+            ? <img src={url(data.foto)} alt={data.alt ?? data.keterangan} loading="lazy">
+            : <div class="gallery-placeholder">{data.label}</div>}
+          <figcaption>{data.keterangan}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" hidden slot="after-main">
+    <button class="lightbox-close" type="button" aria-label="Tutup">&times;</button>
+    <img src="data:," alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+
+</BaseLayout>

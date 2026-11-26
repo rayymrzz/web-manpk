@@ -1,0 +1,51 @@
+---
+import { url } from '../lib/url';
+
+const links = [
+  { href: '', label: 'Beranda' },
+  { href: 'profil/', label: 'Profil' },
+  { href: 'berita/', label: 'Berita' },
+  { href: 'prestasi/', label: 'Prestasi' },
+  { href: 'galeri/', label: 'Galeri' },
+  { href: 'kontak/', label: 'Kontak' },
+  { href: 'snmb/', label: 'SNMB 2027', cta: true },
+];
+
+const strip = (p: string) => p.replace(/\/+$/, '') || '/';
+const here = strip(Astro.url.pathname);
+---
+
+<header class="navbar">
+  <div class="nav-container">
+
+    <a href={url()} class="brand">
+      <img src={url('logo.png')} alt="Logo MANPK Jombang" class="brand-logo-img">
+      <div class="brand-name">
+        <strong>MANPK</strong>
+        <span>JOMBANG</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        {links.map(({ href, label, cta }) => {
+          const active = strip(url(href)) === here;
+          return (
+            <li>
+              <a
+                href={url(href)}
+                class:list={[{ 'nav-cta': cta, active }]}
+                aria-current={active ? 'page' : undefined}
+              >{label}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+  </div>
+</header>

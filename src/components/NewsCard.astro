@@ -1,0 +1,36 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { url } from '../lib/url';
+
+interface Props {
+  entry: CollectionEntry<'berita'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+
+const tanggal = d.tanggal
+  ? new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d.tanggal)
+  : null;
+---
+
+<article
+  class:list={['news-card', { 'news-featured': d.utama, 'news-announce': d.kategori === 'Pengumuman' }]}
+  data-category={d.kategori.toLowerCase()}
+>
+  {d.foto
+    ? <img class="news-image" src={url(d.foto)} alt={d.fotoAlt ?? ''} loading="lazy">
+    : <div class="news-image"><span>{d.labelFoto}</span></div>}
+  <div class="news-body">
+    <div class="news-meta">
+      <span class="news-tag">{d.kategori}</span>
+      {tanggal
+        ? <time datetime={d.tanggal!.toISOString().slice(0, 10)}>{tanggal}</time>
+        : <time>[Tanggal]</time>}
+    </div>
+    <h3>{d.judul}</h3>
+    <Content />
+    {d.tautan && <a href={url(d.tautan)} class="news-link">{d.teksTautan}</a>}
+  </div>
+</article>

@@ -1,0 +1,47 @@
+---
+import { url } from '../lib/url';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <h3>MANPK JOMBANG</h3>
+      <p class="footer-slogan">Cendekia Ulama, Ulama Cendekia.</p>
+      <p class="footer-desc">
+        Madrasah Aliyah Negeri Program Keagamaan MAN 4 Jombang,
+        di lingkungan Pondok Pesantren Mamba'ul Ma'arif Denanyar.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href={url('profil/')}>Profil</a></li>
+        <li><a href={url('berita/')}>Berita</a></li>
+        <li><a href={url('prestasi/')}>Prestasi</a></li>
+        <li><a href={url('galeri/')}>Galeri</a></li>
+        <li><a href={url('kontak/')}>Kontak</a></li>
+        <li><a href={url('snmb/')}>Pendaftaran SNMB</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Alamat</h4>
+      <p>
+        Jl. KH. Bisri Syansuri No. 21, Denanyar,<br>
+        Kec. Jombang, Kab. Jombang, Jawa Timur
+      </p>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/manpk.jombang/" target="_blank" rel="noopener">Instagram @manpk.jombang</a></li>
+        <li><a href="https://www.man4jombang.sch.id" target="_blank" rel="noopener">man4jombang.sch.id</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; <span data-year>{year}</span> MANPK Jombang. Seluruh hak cipta dilindungi.</span>
+  </div>
+</footer>

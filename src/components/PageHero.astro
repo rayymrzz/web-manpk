@@ -1,0 +1,28 @@
+---
+/**
+ * Hero halaman dalam (Profil, Berita, Galeri, Kontak, SNMB).
+ * Judul = `title` + bagian berwarna emas `accent`. Paragraf = slot default.
+ * Tombol tambahan (opsional) = slot "actions".
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  class?: string;
+}
+const { eyebrow, title, accent, class: extra } = Astro.props;
+---
+
+<section class:list={['page-hero', extra]}>
+  <div class="hero-pattern"></div>
+  <div class="page-hero-content" data-hero>
+    <p class="eyebrow" data-hero-fade="start">{eyebrow}</p>
+    <h1 data-split>{title} <span>{accent}</span></h1>
+    <p data-split><slot /></p>
+    {Astro.slots.has('actions') && (
+      <div class="hero-actions" data-hero-fade="end">
+        <slot name="actions" />
+      </div>
+    )}
+  </div>
+</section>

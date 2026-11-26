@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import NewsCard from '../components/NewsCard.astro';
+
+// Berita ditulis sebagai file .md di src/content/berita/ (lihat README.md).
+// Urutan: berita utama → bertanggal (terbaru dulu) → tanpa tanggal (menurut `urutan`).
+const berita = (await getCollection('berita')).sort((a, b) => {
+  if (a.data.utama !== b.data.utama) return a.data.utama ? -1 : 1;
+  const ta = a.data.tanggal?.getTime() ?? -Infinity;
+  const tb = b.data.tanggal?.getTime() ?? -Infinity;
+  if (ta !== tb) return tb - ta;
+  return a.data.urutan - b.data.urutan;
+});
+---
+
+<BaseLayout title="Berita | MANPK Jombang" description="Berita dan kegiatan terbaru MANPK Jombang.">
+
+  <PageHero eyebrow="KABAR MADRASAH" title="Berita &" accent="Kegiatan.">
+    Informasi terbaru seputar kegiatan, prestasi, dan agenda MANPK Jombang.
+  </PageHero>
+
+
+  <section class="content-section">
+    <div class="news-grid">
+      {berita.map((entry) => <NewsCard entry={entry} />)}
+    </div>
+  </section>
+
+</BaseLayout>

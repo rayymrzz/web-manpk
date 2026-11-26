@@ -1,0 +1,186 @@
+---
+import { existsSync } from 'node:fs';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Timeline from '../components/Timeline.astro';
+import { url } from '../lib/url';
+
+// Tanggal `end` dipakai script untuk menandai tahap yang sudah lewat.
+const jalurPrestasi = [
+  { label: 'Pendaftaran (online)', time: '19 Nov 2026 – 3 Jan 2027', end: '2027-01-03' },
+  { label: 'Pengumuman lolos berkas', time: '9 Jan 2027', end: '2027-01-09' },
+  { label: 'Tes wawancara', time: '12 – 14 Jan 2027', end: '2027-01-14' },
+  { label: 'Pengumuman kelulusan', time: '20 Jan 2027', end: '2027-01-20' },
+  { label: 'Daftar ulang', time: '21 – 28 Jan 2027', end: '2027-01-28' },
+];
+
+const jalurTes = [
+  { label: 'Pendaftaran (online)', time: '19 Nov 2026 – 11 Jan 2027', end: '2027-01-11' },
+  { label: 'Pengumuman lolos berkas', time: '22 Jan 2027', end: '2027-01-22' },
+  { label: 'Uji coba CBT', time: '27 – 28 Jan 2027', end: '2027-01-28' },
+  { label: 'Computer Based Test (CBT)', time: '30 – 31 Jan 2027', end: '2027-01-31' },
+  { label: 'Tes wawancara', time: '30 Jan – 4 Feb 2027', end: '2027-02-04' },
+  { label: 'Pengumuman kelulusan', time: '15 Feb 2027', end: '2027-02-15' },
+  { label: 'Daftar ulang', time: '16 – 24 Feb 2027', end: '2027-02-24' },
+];
+
+const waText = "?text=Assalamu'alaikum%2C%20saya%20ingin%20bertanya%20tentang%20SNMB%20MAN%20PK%20Jombang%202027%2F2028.";
+
+// Simpan poster asli dari Instagram @man4jombang sebagai public/img/poster-snmb-2027.jpg.
+// Selama file belum ada, bagian poster tidak ditampilkan.
+const posterPath = 'img/poster-snmb-2027.jpg';
+const adaPoster = existsSync(`public/${posterPath}`);
+---
+
+<BaseLayout
+  title="SNMB 2027/2028 | MANPK Jombang"
+  description="Pendaftaran Seleksi Nasional Murid Baru (SNMB) MAN PK Jombang Tahun Ajaran 2027/2028: jalur prestasi dan jalur tes, jadwal, dan kontak panitia."
+>
+  <Fragment slot="head">
+    <meta property="og:title" content="SNMB MAN PK Jombang 2027/2028 telah dibuka">
+    <meta property="og:description" content="Jalur Prestasi: 19 Nov 2026 – 3 Jan 2027. Jalur Tes: 19 Nov 2026 – 11 Jan 2027. Kuota terbatas.">
+  </Fragment>
+
+  <!-- HERO SNMB -->
+  <PageHero
+    class="snmb-hero"
+    eyebrow="SELEKSI NASIONAL MURID BARU · TAHUN AJARAN 2027/2028"
+    title="Bersama kami, wujudkan generasi"
+    accent="ulama cendekiawan."
+  >
+    Pendaftaran SNMB MAN PK Jombang telah dibuka. Kuota terbatas,
+    pendaftaran dilakukan secara online melalui portal SNMB Kemenag.
+    <Fragment slot="actions">
+      <a href="https://snmb-madrasah.kemenag.go.id" class="hero-button" target="_blank" rel="noopener">
+        Daftar di Portal SNMB <span>↗</span>
+      </a>
+      <a href="#kontak-panitia" class="ghost-button">Tanya Panitia</a>
+    </Fragment>
+  </PageHero>
+
+
+  <!-- STATUS JALUR -->
+  <section class="route-strip" aria-label="Status pendaftaran" data-stagger>
+    <div class="route" data-open="2026-11-19" data-close="2027-01-03">
+      <span class="route-status">Dibuka</span>
+      <h2>Jalur Prestasi</h2>
+      <p>19 November 2026 – 3 Januari 2027</p>
+    </div>
+    <div class="route" data-open="2026-11-19" data-close="2027-01-11">
+      <span class="route-status">Dibuka</span>
+      <h2>Jalur Tes</h2>
+      <p>19 November 2026 – 11 Januari 2027</p>
+    </div>
+  </section>
+
+
+  <!-- KENAPA MAN PK -->
+  <section class="content-section why-section reveal">
+    <div class="why-intro">
+      <p class="section-label">KENAPA MAN PK?</p>
+      <h2>Satu dari <em>11</em> madrasah penyelenggara MAN Program Keagamaan di Indonesia.</h2>
+      <p>
+        MAN PK adalah program peminatan unggulan nasional di bidang
+        keagamaan berbasis asrama. Di Jombang, program ini berjalan
+        di lingkungan Pondok Pesantren Mamba'ul Ma'arif Denanyar.
+      </p>
+    </div>
+
+    <dl class="fact-list" data-stagger>
+      <div>
+        <dt><span data-count="8">8</span> semester</dt>
+        <dd>Peluang beasiswa UKT di UIN Sunan Ampel Surabaya dan UIN Walisongo Semarang.</dd>
+      </div>
+      <div>
+        <dt><span data-count="70">70</span>+ buku</dt>
+        <dd>Karya murid yang telah diterbitkan oleh penerbit.</dd>
+      </div>
+      <div>
+        <dt><span data-count="6">6</span> juz</dt>
+        <dd>Target minimal hafalan Al-Qur'an, ditambah Hadits Arba'in Nawawi.</dd>
+      </div>
+      <div>
+        <dt>Alumni</dt>
+        <dd>Melanjutkan studi ke Mesir, Yaman, Maroko, UGM, Unair, dan kampus lainnya.</dd>
+      </div>
+    </dl>
+  </section>
+
+
+  <!-- PROGRAM -->
+  <section class="content-section program-section reveal">
+    <p class="section-label">PROGRAM PEMBINAAN</p>
+    <ol class="program-list" data-stagger>
+      <li>
+        <h3>Tahsin &amp; Tahfidz</h3>
+        <p>Al-Qur'an dan Al-Hadits, target minimal 6 juz dan hafalan Hadits Arba'in Nawawi.</p>
+      </li>
+      <li>
+        <h3>Kutub Turats</h3>
+        <p>Bimbingan membaca kitab turats, ditopang program wajib matrikulasi bahasa.</p>
+      </li>
+      <li>
+        <h3>Khatib, Da'i &amp; Da'iyah</h3>
+        <p>Pembinaan dakwah lewat muhadlarah, talkshow, dan bahtsul masail.</p>
+      </li>
+      <li>
+        <h3>Olimpiade &amp; Karya Tulis</h3>
+        <p>Pembinaan olimpiade keagamaan, kebahasaan, dan karya tulis ilmiah.</p>
+      </li>
+      <li>
+        <h3>Language Fair &amp; Camp</h3>
+        <p>Penguatan Bahasa Arab dan Inggris, termasuk camp TOAFL/TOEFL.</p>
+      </li>
+    </ol>
+  </section>
+
+
+  <!-- JADWAL -->
+  <section class="content-section schedule-section reveal">
+    <div class="section-heading">
+      <span>JADWAL SELEKSI</span>
+      <h2>Tahapan tiap jalur</h2>
+    </div>
+
+    <div class="schedule-grid">
+      <Timeline title="Jalur Prestasi" items={jalurPrestasi} />
+      <Timeline title="Jalur Tes" items={jalurTes} />
+    </div>
+  </section>
+
+
+  <!-- SYARAT + KONTAK -->
+  <section class="content-section requirement-section reveal" id="kontak-panitia">
+    <div class="requirement-text">
+      <p class="section-label">SYARAT &amp; JUKNIS</p>
+      <h2>Persyaratan lengkap ada di juknis resmi.</h2>
+      <p>
+        Syarat pendaftaran dan petunjuk teknis SNMB MAN PK MAN 4 Jombang
+        Tahun Ajaran 2027/2028 tersedia di portal SNMB Madrasah Kemenag.
+      </p>
+      <a href="https://snmb-madrasah.kemenag.go.id" class="about-button" target="_blank" rel="noopener">
+        snmb-madrasah.kemenag.go.id ↗
+      </a>
+
+      <h3 class="cp-title">Contact person</h3>
+      <div class="cp-list">
+        <a class="cp-card" href={`https://wa.me/6285745254848${waText}`} target="_blank" rel="noopener">
+          <strong>Pak Usman</strong>
+          <span>0857 4525 4848</span>
+          <em>Chat WhatsApp</em>
+        </a>
+        <a class="cp-card" href={`https://wa.me/6282142085030${waText}`} target="_blank" rel="noopener">
+          <strong>Pak Syifa'</strong>
+          <span>0821 4208 5030</span>
+          <em>Chat WhatsApp</em>
+        </a>
+      </div>
+    </div>
+
+    <figure class:list={['poster-frame', { 'no-image': !adaPoster }]}>
+      {adaPoster && <img src={url(posterPath)} alt="Poster SNMB MAN PK Jombang Tahun Ajaran 2027/2028">}
+      <figcaption>Poster resmi SNMB 2027/2028</figcaption>
+    </figure>
+  </section>
+
+</BaseLayout>

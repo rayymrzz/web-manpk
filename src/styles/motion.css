@@ -1,0 +1,34 @@
+/* =========================================
+   GERAK — pelengkap style.css untuk GSAP + Lenis
+   Aturan .has-motion hanya berlaku bila <html> punya kelas itu
+   (tidak dipasang saat prefers-reduced-motion: reduce).
+========================================= */
+
+/* Lenis mengatur smooth scroll sendiri */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+/* Hero: animasi CSS bawaan (revealText) diganti timeline GSAP */
+.has-motion [data-hero] {
+  animation: none;
+}
+
+/* Disembunyikan sampai JS siap supaya tidak berkedip */
+.has-motion [data-split],
+.has-motion [data-hero-fade] {
+  visibility: hidden;
+}
+
+/* Mask baris: beri sedikit ruang agar huruf miring/ekor huruf tidak terpotong */
+[data-split] .hero-line-mask {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+}
+
+/* Bingkai parallax memotong isi yang bergeser */
+[data-parallax] {
+  overflow: hidden;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galeri foto kegiatan MANPK Jombang.">
+  <title>Galeri | MANPK Jombang</title>
+  <link rel="icon" href="logo-hassa.png.png">
+  <meta name="theme-color" content="#014E27">
+  <meta property="og:site_name" content="MANPK Jombang">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="logo-hassa.png.png" alt="Logo MANPK Jombang" class="brand-logo-img">
+        <div class="brand-name">
+          <strong>MANPK</strong>
+          <span>JOMBANG</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+          <li><a href="galeri.html" class="active" aria-current="page">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="snmb.html" class="nav-cta">SNMB 2027</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="hero-pattern"></div>
+      <div class="page-hero-content">
+        <p class="eyebrow">DOKUMENTASI</p>
+        <h1>Galeri <span>MANPK.</span></h1>
+        <p>Potret keseharian, kegiatan, dan momen berharga santri MANPK Jombang.</p>
+      </div>
+    </section>
+
+
+    <section class="content-section">
+
+      <div class="filter-bar" role="group" aria-label="Filter kategori galeri">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">Semua</button>
+        <button class="filter-btn" data-filter="madrasah" aria-pressed="false">Madrasah</button>
+        <button class="filter-btn" data-filter="asrama" aria-pressed="false">Asrama</button>
+        <button class="filter-btn" data-filter="lomba" aria-pressed="false">Lomba</button>
+      </div>
+
+      <!--
+        CARA MENAMBAH FOTO:
+        Ganti isi <figure> dengan:
+          <img src="galeri/foto1.jpg" alt="Deskripsi foto">
+          <figcaption>Keterangan foto</figcaption>
+        Foto yang memakai <img> otomatis bisa diklik (lightbox).
+      -->
+
+      <div class="gallery-grid">
+
+        <figure class="gallery-item tall" data-category="madrasah">
+          <div class="gallery-placeholder">FOTO 1</div>
+          <figcaption>Gedung MAN 4 Jombang</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="asrama">
+          <div class="gallery-placeholder">FOTO 2</div>
+          <figcaption>Asrama Hasbullah Sa'id</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="lomba">
+          <div class="gallery-placeholder">FOTO 3</div>
+          <figcaption>Al-Musabaqoh ke-51 UINSA</figcaption>
+        </figure>
+
+        <figure class="gallery-item wide" data-category="asrama">
+          <div class="gallery-placeholder">FOTO 4</div>
+          <figcaption>Kajian kitab bersama</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="madrasah">
+          <div class="gallery-placeholder">FOTO 5</div>
+          <figcaption>Kegiatan belajar di kelas</figcaption>
+        </figure>
+
+        <figure class="gallery-item tall" data-category="lomba">
+          <div class="gallery-placeholder">FOTO 6</div>
+          <figcaption>Lomba Video Kreatif Kemenag</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="madrasah">
+          <div class="gallery-placeholder">FOTO 7</div>
+          <figcaption>Muhadharah</figcaption>
+        </figure>
+
+        <figure class="gallery-item wide" data-category="asrama">
+          <div class="gallery-placeholder">FOTO 8</div>
+          <figcaption>Kebersamaan santri</figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" hidden>
+    <button class="lightbox-close" type="button" aria-label="Tutup">&times;</button>
+    <img src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <h3>MANPK JOMBANG</h3>
+        <p class="footer-slogan">Cendekia Ulama, Ulama Cendekia.</p>
+        <p class="footer-desc">
+          Madrasah Aliyah Negeri Program Keagamaan MAN 4 Jombang,
+          di lingkungan Pondok Pesantren Mamba'ul Ma'arif Denanyar.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="snmb.html">Pendaftaran SNMB</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Alamat</h4>
+        <p>
+          Jl. KH. Bisri Syansuri No. 21, Denanyar,<br>
+          Kec. Jombang, Kab. Jombang, Jawa Timur
+        </p>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/manpk.jombang/" target="_blank" rel="noopener">Instagram @manpk.jombang</a></li>
+          <li><a href="https://www.man4jombang.sch.id" target="_blank" rel="noopener">man4jombang.sch.id</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> MANPK Jombang. Seluruh hak cipta dilindungi.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

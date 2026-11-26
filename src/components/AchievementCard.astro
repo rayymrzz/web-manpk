@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../lib/url';
+
+interface Props {
+  entry: CollectionEntry<'prestasiUnggulan'>;
+  featured?: boolean;
+}
+
+const { entry, featured = false } = Astro.props;
+const d = entry.data;
+---
+
+<article class:list={['achievement-card', { 'featured-main': featured }]}>
+  <div class="achievement-card-image" data-parallax={d.foto ? '' : undefined}>
+    {d.foto && <img src={url(d.foto)} alt={d.fotoAlt ?? ''} loading="lazy">}
+    <span>{d.label}</span>
+  </div>
+  <div class="achievement-card-content">
+    <span class="achievement-award">{d.gelar}</span>
+    <h3>{d.judul}</h3>
+    <p>{d.keterangan}</p>
+    <div class="achievement-names">
+      {d.nama}
+    </div>
+  </div>
+</article>
+
+<style>
+  /* Foto (bila diisi) menjadi latar kartu; label tetap terbaca di atasnya */
+  .achievement-card-image {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .achievement-card-image img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .achievement-card-image:has(img)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(1, 78, 39, 0.85), transparent 60%);
+  }
+</style>

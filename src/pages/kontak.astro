@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout title="Kontak | MANPK Jombang" description="Kontak dan lokasi MANPK Jombang.">
+
+  <PageHero eyebrow="HUBUNGI KAMI" title="Kontak &" accent="Lokasi.">
+    Alamat, media sosial, dan contact person pendaftaran MANPK Jombang.
+  </PageHero>
+
+
+  <section class="content-section contact-layout">
+
+    <div class="contact-info">
+      <p class="section-label">INFORMASI KONTAK</p>
+
+      <div class="contact-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+        <div>
+          <h3>Alamat</h3>
+          <p>Jl. KH. Bisri Syansuri No. 21, Denanyar, Kec. Jombang, Kab. Jombang, Jawa Timur</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></span>
+        <div>
+          <h3>Website MAN 4 Jombang</h3>
+          <p><a href="https://www.man4jombang.sch.id" target="_blank" rel="noopener">www.man4jombang.sch.id</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6"/></svg></span>
+        <div>
+          <h3>Instagram</h3>
+          <p>
+            <a href="https://www.instagram.com/manpk.jombang/" target="_blank" rel="noopener">@manpk.jombang</a> ·{" "}
+            <a href="https://www.instagram.com/man4jombang/" target="_blank" rel="noopener">@man4jombang</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Tambahkan telepon / email resmi madrasah di sini bila ada -->
+    </div>
+
+
+    <div class="contact-panel">
+      <p class="section-label">PENDAFTARAN SNMB 2027/2028</p>
+      <h2>Tanya langsung ke panitia.</h2>
+      <p>Untuk pertanyaan seputar pendaftaran murid baru, hubungi contact person berikut lewat WhatsApp.</p>
+
+      <div class="cp-list">
+        <a class="cp-card" href="https://wa.me/6285745254848" target="_blank" rel="noopener">
+          <strong>Pak Usman</strong>
+          <span>0857 4525 4848</span>
+          <em>Chat WhatsApp</em>
+        </a>
+        <a class="cp-card" href="https://wa.me/6282142085030" target="_blank" rel="noopener">
+          <strong>Pak Syifa'</strong>
+          <span>0821 4208 5030</span>
+          <em>Chat WhatsApp</em>
+        </a>
+      </div>
+
+      <a href={url('snmb/')} class="news-link">Lihat jadwal &amp; tahapan SNMB →</a>
+    </div>
+
+  </section>
+
+
+  <section class="map-section">
+    <iframe
+      title="Peta lokasi MAN 4 Jombang"
+      src="https://maps.google.com/maps?q=MAN%204%20Jombang%20Denanyar&z=16&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+</BaseLayout>

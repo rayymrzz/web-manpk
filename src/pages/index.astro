@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+
+// Foto hero: isi `foto` (mis. 'img/hero-1.jpg' di folder public/) untuk mengganti placeholder.
+const heroSlides: { judul: string; ket: string; foto?: string; alt?: string }[] = [
+  { judul: 'FOTO MANPK JOMBANG', ket: 'Foto landscape 1' },
+  { judul: 'FOTO KEGIATAN', ket: 'Foto landscape 2' },
+  { judul: 'FOTO ASRAMA', ket: 'Foto landscape 3' },
+];
+---
+
+<BaseLayout title="MANPK Jombang | Beranda" description="Portal informasi MANPK Jombang">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-pattern"></div>
+
+    <div class="hero-content" data-hero>
+
+      <p class="eyebrow" data-hero-fade="start">
+        MADRASAH ALIYAH NEGERI PROGRAM KEAGAMAAN
+      </p>
+
+      <h1 data-split>
+        Membangun Generasi
+        <span>Cendekia.</span>
+      </h1>
+
+      <p class="hero-slogan" data-split>
+        Cendekia Ulama, Ulama Cendekia.
+      </p>
+
+      <p class="hero-description" data-split>
+        Menumbuhkan generasi berilmu, berakhlak,
+        dan siap menghadapi perkembangan zaman.
+      </p>
+
+      <a href={url('profil/')} class="hero-button" data-hero-fade="end">
+        Mengenal MANPK <span>→</span>
+      </a>
+
+      <div class="hero-pagination" aria-label="Pilih foto" data-hero-fade="end">
+        {heroSlides.map((_, i) => (
+          <button type="button" class:list={{ current: i === 0 }}>{String(i + 1).padStart(2, '0')}</button>
+        ))}
+      </div>
+
+    </div>
+
+
+    <!-- HERO IMAGE -->
+    <div class="hero-visual">
+
+      <div class="hero-image" data-parallax>
+        {heroSlides.map((s, i) => (
+          <div class:list={['hero-slide', { active: i === 0 }]}>
+            {s.foto ? (
+              <img src={url(s.foto)} alt={s.alt ?? ''} />
+            ) : (
+              <div class="image-placeholder">
+                <span>{s.judul}</span>
+                <p>{s.ket}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div class="hero-caption">
+        MAN 4 JOMBANG <span>•</span> PROGRAM KEAGAMAAN SEJAK 2017
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PENGUMUMAN SNMB -->
+  <section class="announce-band">
+    <div class="announce-inner">
+      <p class="announce-label">PENDAFTARAN DIBUKA</p>
+      <p class="announce-text">
+        SNMB MAN PK Jombang 2027/2028 —
+        Jalur Prestasi s.d. <strong>3 Januari 2027</strong>,
+        Jalur Tes s.d. <strong>11 Januari 2027</strong>.
+      </p>
+      <a href={url('snmb/')} class="announce-link">Info pendaftaran →</a>
+    </div>
+  </section>
+
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section reveal">
+
+    <div class="about-text">
+
+      <p class="section-label">
+        01 — TENTANG KAMI
+      </p>
+
+      <h2>
+        Pendidikan, keilmuan,
+        dan karakter dalam satu perjalanan.
+      </h2>
+
+      <p>
+        MANPK Jombang merupakan lingkungan pendidikan
+        yang mengintegrasikan pendalaman ilmu keislaman
+        dengan wawasan keilmuan dan perkembangan zaman.
+      </p>
+
+      <a href={url('profil/')} class="about-button">
+        Selengkapnya →
+      </a>
+
+    </div>
+
+
+    <div class="about-visual">
+      <div class="about-image-placeholder" data-parallax>
+        FOTO LINGKUNGAN MANPK
+      </div>
+    </div>
+
+
+    <div class="about-values" data-stagger>
+
+      <div class="value-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5v-15ZM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5v-15Z"/></svg></span>
+        <p>Unggul dalam<br>Ilmu Pengetahuan</p>
+      </div>
+
+      <div class="value-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 2.6H18v3.4l2.6 2.6-2.6 2.6v3.4h-3.4L12 20.2l-2.6-2.6H6v-3.4L3.4 11.6 6 9V5.6h3.4L12 3Z"/><circle cx="12" cy="11.6" r="2.6"/></svg></span>
+        <p>Berakhlak Mulia</p>
+      </div>
+
+      <div class="value-item">
+        <span class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M10 5h9v9"/></svg></span>
+        <p>Siap Menghadapi<br>Masa Depan</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AYAT -->
+  <section class="verse-band reveal">
+    <p class="verse-arabic" lang="ar" dir="rtl">
+      يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+    </p>
+    <p class="verse-translation">
+      "Allah akan mengangkat orang-orang yang beriman di antaramu
+      dan orang-orang yang diberi ilmu beberapa derajat."
+    </p>
+    <p class="verse-source">QS. Al-Mujadilah: 11</p>
+  </section>
+
+</BaseLayout>

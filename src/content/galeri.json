@@ -1,0 +1,46 @@
+[
+  {
+    "keterangan": "Gedung MAN 4 Jombang",
+    "kategori": "madrasah",
+    "label": "FOTO 1",
+    "ukuran": "tall"
+  },
+  {
+    "keterangan": "Asrama Hasbullah Sa'id",
+    "kategori": "asrama",
+    "label": "FOTO 2"
+  },
+  {
+    "keterangan": "Al-Musabaqoh ke-51 UINSA",
+    "kategori": "lomba",
+    "label": "FOTO 3"
+  },
+  {
+    "keterangan": "Kajian kitab bersama",
+    "kategori": "asrama",
+    "label": "FOTO 4",
+    "ukuran": "wide"
+  },
+  {
+    "keterangan": "Kegiatan belajar di kelas",
+    "kategori": "madrasah",
+    "label": "FOTO 5"
+  },
+  {
+    "keterangan": "Lomba Video Kreatif Kemenag",
+    "kategori": "lomba",
+    "label": "FOTO 6",
+    "ukuran": "tall"
+  },
+  {
+    "keterangan": "Muhadharah",
+    "kategori": "madrasah",
+    "label": "FOTO 7"
+  },
+  {
+    "keterangan": "Kebersamaan santri",
+    "kategori": "asrama",
+    "label": "FOTO 8",
+    "ukuran": "wide"
+  }
+]
