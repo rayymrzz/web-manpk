@@ -7,7 +7,7 @@ Versi HTML lama tetap disimpan di folder `manpk/` sebagai rujukan.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/web-manpk/
+npm run dev        # http://localhost:4321/
 npm run build      # hasil di dist/
 npm run preview    # lihat hasil build
 npm run check:mobile -- beranda profil/   # cek 320/390/768/1280px dengan Playwright (jalankan build dulu)
@@ -64,9 +64,9 @@ Tulis path foto tanpa `/` di depan, misalnya `img/galeri/x.jpg`. Dengan begitu t
 
 1. Push repo ini ke GitHub (branch `main`).
 2. Di GitHub buka **Settings → Pages → Source**, lalu pilih **GitHub Actions**.
-3. Setiap ada push ke `main`, workflow `.github/workflows/deploy.yml` otomatis membangun dan menerbitkan situs ke https://rayymrzz.github.io/web-manpk/.
+3. Setiap ada push ke `main`, workflow `.github/workflows/deploy.yml` otomatis membangun dan menerbitkan situs ke https://manpk-jombang.github.io/.
 
-`base` di `astro.config.mjs` diisi `/web-manpk`, sesuai nama repo. Kalau repo diganti nama atau situs memakai domain sendiri, ubah `base` (untuk domain sendiri isi `/`) dan `site`.
+`base` di `astro.config.mjs` diisi `/` karena repo ini bernama `manpk-jombang.github.io` (situs organisasi, tampil di akar domain). Kalau situs dipindah ke repo dengan nama lain, isi `base` dengan `/nama-repo`; kalau memakai domain sendiri, biarkan `/` dan ubah `site`.
 
 ## Animasi
 

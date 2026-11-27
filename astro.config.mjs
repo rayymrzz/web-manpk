@@ -2,12 +2,12 @@
 import { defineConfig } from 'astro/config';
 import { satteri } from '@astrojs/markdown-satteri';
 
-// GitHub Pages: https://rayymrzz.github.io/web-manpk/
-// `base` harus sama dengan nama repo. Kalau repo diganti nama atau memakai domain sendiri,
-// ubah `base` (domain sendiri → '/') dan `site`.
+// GitHub Pages: https://manpk-jombang.github.io/
+// Repo `manpk-jombang.github.io` = situs organisasi di akar domain, jadi `base` = '/'.
+// Kalau pindah ke repo bernama lain, isi `base` dengan '/nama-repo'.
 export default defineConfig({
-  site: 'https://rayymrzz.github.io',
-  base: '/web-manpk',
+  site: 'https://manpk-jombang.github.io',
+  base: '/',
   trailingSlash: 'ignore',
   markdown: {
     // Jangan ubah kutip lurus menjadi kutip lengkung: teks berita harus sama persis dengan aslinya.
